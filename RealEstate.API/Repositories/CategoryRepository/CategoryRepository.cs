@@ -13,8 +13,6 @@ namespace RealEstate.API.Repositories.CategoryRepository
             _context = context;
         }
 
-
-
         public async Task<List<ResultCategoryDto>> GetAllCategoriesAsync()
         {
             string query = "SELECT * FROM Category";
@@ -60,6 +58,18 @@ namespace RealEstate.API.Repositories.CategoryRepository
             using (var connection = _context.CreateConnection())
             {
                 connection.Execute(query, parameters);
+            }
+        }
+
+        public async Task<GetCategoryByIdDto?> GetCategoryById(int categoryId)
+        {
+            var query = "SELECT * FROM Category WHERE CategoryID = @CategoryID";
+            var parameters = new DynamicParameters();
+            parameters.Add("@CategoryID", categoryId);
+            using (var connection = _context.CreateConnection())
+            {
+                var result = await connection.QueryFirstOrDefaultAsync<GetCategoryByIdDto>(query, parameters);
+                return result;
             }
         }
     }

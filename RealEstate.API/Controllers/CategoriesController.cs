@@ -54,5 +54,20 @@ namespace RealEstate.API.Controllers
             _categoryRepository.UpdateCategory(updateCategoryDto);
             return Ok("Category updated successfully.");
         }
+
+        [HttpGet("{categoryId}")]
+        public async Task<IActionResult> GetCategoryById(int categoryId)
+        {
+            if (categoryId <= 0)
+            {
+                return BadRequest("Invalid category ID.");
+            }
+            var category = await _categoryRepository.GetCategoryById(categoryId);
+            if (category == null)
+            {
+                return NotFound("Category not found.");
+            }
+            return Ok(category);
+        }
     }
 }
