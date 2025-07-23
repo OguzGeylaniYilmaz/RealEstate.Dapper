@@ -27,7 +27,7 @@ namespace RealEstate.API.Repositories.ProductRepository
         public async Task<List<ResultProductWithCategory>> GetAllProductsWithCategoryAsync()
         {
             string query = @"
-                SELECT p.ProductID, p.Title, p.Price, p.City, p.District, c.CategoryName 
+                SELECT p.ProductID, p.Title, p.Price ,p.CoverImage, p.City, p.District, p.Address, p.Type, c.CategoryName 
                 FROM Product p
                 INNER JOIN Category c ON p.ProductCategory = c.CategoryID";
             using (var connection = _context.CreateConnection())
