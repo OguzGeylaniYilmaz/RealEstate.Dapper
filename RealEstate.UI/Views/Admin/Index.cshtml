@@ -1,0 +1,29 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+
+@await Component.InvokeAsync("AdminHead")
+
+<body>
+    <div class="container-xxl position-relative bg-white d-flex p-0">
+        @await Component.InvokeAsync("AdminSpinner")
+
+        @await Component.InvokeAsync("AdminSidebar")
+
+        <div class="content">
+
+            @await Component.InvokeAsync("AdminNavbar")
+
+            @RenderBody()
+
+            @await Component.InvokeAsync("AdminFooter")
+
+        </div>
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    @await Component.InvokeAsync("AdminScripts")
+
+</body>
+
+</html>

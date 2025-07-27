@@ -33,7 +33,7 @@ namespace RealEstate.API.Controllers
             return Ok("Category created successfully.");
         }
 
-        [HttpDelete]
+        [HttpDelete("{categoryId}")]
         public async Task<IActionResult> DeleteCategory(int categoryId)
         {
             if (categoryId <= 0)

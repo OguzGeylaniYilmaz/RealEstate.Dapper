@@ -2,7 +2,7 @@
 
 namespace RealEstate.UI.Controllers
 {
-    public class HomeController : Controller
+    public class AdminController : Controller
     {
         public IActionResult Index()
         {
