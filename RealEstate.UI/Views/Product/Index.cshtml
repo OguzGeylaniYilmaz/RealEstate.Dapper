@@ -1,0 +1,52 @@
+﻿@model List<ResultProductDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-12">
+            <div class="bg-light rounded h-100 p-4">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Product Title</th>
+                                <th scope="col">City</th>
+                                <th scope="col">District</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Type</th>
+                                <th scope="col">Delete</th>
+                                <th scope="col">Edit</th>
+                                <th scope="col">Details</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <th scope="row">@item.productID</th>
+                                    <td>@item.title</td>
+                                    <td>@item.city</td>
+                                    <td>@item.district</td>
+                                    <td>@item.categoryName</td>
+                                    <td>@item.price</td>
+                                    <td>@item.type</td>
+                                    <td><a href="/Product/DeleteProduct/@item.productID" class="btn btn-outline-danger">Delete</a></td>
+                                    <td><a href="/Product/UpdateProduct/@item.productID" class="btn btn-outline-info">Edit</a></td>
+                                    <td><a href="/Product/ProductDetails/@item.productID" class="btn btn-outline-warning">Details</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <a href="/Product/CreateProduct" class="btn btn-success">New Product</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
