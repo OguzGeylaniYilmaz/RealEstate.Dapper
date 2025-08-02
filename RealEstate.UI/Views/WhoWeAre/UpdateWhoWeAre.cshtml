@@ -1,0 +1,32 @@
+﻿@model UpdateWhoWeAreDto
+
+@{
+    ViewData["Title"] = "UpdateWhoWeAre";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-12">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">Update Who We Are</h6>
+                <form method="post">
+                    <input type="hidden" asp-for="WhoWeAreID" />
+                    <label>Title</label>
+                    <input type="text" asp-for="Title" class="form-control" />
+                    <br />
+                    <label>Subtitle</label>
+                    <input type="text" asp-for="Subtitle" class="form-control" />
+                    <br />
+                    <textarea asp-for="ShortDescription" rows="4" cols="5" class="form-control"></textarea>
+                    <label>Long Description</label>
+                    <textarea asp-for="LongDescription" rows="4" cols="5" class="form-control"></textarea>
+                    <br />
+                    <button type="submit" class="btn btn-success">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

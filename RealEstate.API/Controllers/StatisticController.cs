@@ -40,7 +40,7 @@ namespace RealEstate.API.Controllers
         public IActionResult GetNumberOfDifferentCities() => Ok(_statisticRepository.NumberOfDifferentCities());
 
         [HttpGet("average-price/rent")]
-        public IActionResult GetAverageProductPriceByRent() => Ok(_statisticRepository.AverageProductPriceByRent);
+        public IActionResult GetAverageProductPriceByRent() => Ok(_statisticRepository.AverageProductPriceByRent());
 
         [HttpGet("average-price/sale")]
         public IActionResult GetAverageProductPriceBySale() => Ok(_statisticRepository.AverageProductPriceBySale());

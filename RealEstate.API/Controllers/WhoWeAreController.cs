@@ -49,7 +49,7 @@ namespace RealEstate.API.Controllers
             return Ok("WhoWeAre created successfully.");
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteWhoWeAre(int id)
         {
             if (id <= 0)
