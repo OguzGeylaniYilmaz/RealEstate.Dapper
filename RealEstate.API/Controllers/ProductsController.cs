@@ -26,5 +26,12 @@ namespace RealEstate.API.Controllers
             var products = await _productRepository.GetAllProductsWithCategoryAsync();
             return Ok(products);
         }
+
+        [HttpPost("ChangeStatus")]
+        public async Task<IActionResult> ChangeStatus(int productId, bool status)
+        {
+            await _productRepository.ChangeStatus(productId, status);
+            return Ok(new { Message = "Product status updated successfully." });
+        }
     }
 }

@@ -1,0 +1,29 @@
+﻿@model UpdateOfferDto
+@{
+    ViewData["Title"] = "UpdateOffer";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-12">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">New Offer</h6>
+                <form method="post">
+                    <input type="hidden" asp-for="OfferID"/>
+                    <label> Title </label>
+                    <input type="text" asp-for="Title" class="form-control" />
+                    <br />
+                    <label> Icon </label>
+                    <input type="text" asp-for="Icon" class="form-control" />
+                    <br />
+                    <label> Description </label>
+                    <textarea asp-for="Description" rows="4" cols="6" class="form-control"></textarea>
+                    <br />
+                    <button type="submit" class="btn btn-success">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

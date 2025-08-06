@@ -13,6 +13,17 @@ namespace RealEstate.API.Repositories.ProductRepository
             _context = context;
         }
 
+        public async Task ChangeStatus(int productId, bool status)
+        {
+            string query = "Update Product Set DealOfTheDay = @Status Where ProductID = @ProductId";
+            var parameters = new DynamicParameters();
+            parameters.Add("ProductId", productId);
+            parameters.Add("Status", status ? 1 : 0);
+
+            using var connection = _context.CreateConnection();
+            await connection.ExecuteAsync(query, parameters);
+        }
+
         public async Task<List<ResultProductDto>> GetAllProductsAsync()
         {
             var query = "Select * From Product";
@@ -20,14 +31,13 @@ namespace RealEstate.API.Repositories.ProductRepository
             {
                 var result = await connection.QueryAsync<ResultProductDto>(query);
                 return result.ToList();
-
             }
         }
 
         public async Task<List<ResultProductWithCategory>> GetAllProductsWithCategoryAsync()
         {
             string query = @"
-                SELECT p.ProductID, p.Title, p.Price ,p.CoverImage, p.City, p.District, p.Address, p.Type, c.CategoryName 
+                SELECT p.ProductID, p.Title, p.Price ,p.CoverImage, p.City, p.District, p.Address, p.Type, p.DealOfTheDay, c.CategoryName 
                 FROM Product p
                 INNER JOIN Category c ON p.ProductCategory = c.CategoryID";
             using (var connection = _context.CreateConnection())

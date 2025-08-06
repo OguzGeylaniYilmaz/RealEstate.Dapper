@@ -1,0 +1,26 @@
+﻿@model CreateServiceDto
+@{
+    ViewData["Title"] = "CreateService";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-12">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">New Service Page</h6>
+                <form method="post">
+                    <label>Service Name</label>
+                    <input type="text" asp-for="ServiceName" class="form-control" />
+                    <br />
+                    <label>Status</label>
+                    <input type="text" asp-for="ServiceStatus" class="form-control" />
+                    <br />
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -23,6 +23,7 @@
                                 <th scope="col">Delete</th>
                                 <th scope="col">Edit</th>
                                 <th scope="col">Details</th>
+                                <th scope="col">Deal Of The Day</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -39,6 +40,8 @@
                                     <td><a href="/Product/DeleteProduct/@item.productID" class="btn btn-outline-danger">Delete</a></td>
                                     <td><a href="/Product/UpdateProduct/@item.productID" class="btn btn-outline-info">Edit</a></td>
                                     <td><a href="/Product/ProductDetails/@item.productID" class="btn btn-outline-warning">Details</a></td>
+                                    <td><a href="/Product/ChangeStatus/@item.productID" class="btn btn-outline-secondary">Change Status</a></td>
+                            
                                 </tr>
                             }
                         </tbody>

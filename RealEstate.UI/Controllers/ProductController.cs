@@ -47,16 +47,19 @@ namespace RealEstate.UI.Controllers
                     Value = x.CategoryID.ToString()
                 }).ToList();
             }
-
-            else
-            {
-                ViewBag.Categories = new List<SelectListItem>();
-                // ViewBag.ErrorMessage = "API'den kategori bilgisi alınamadı.";
-            }
-
             return View();
         }
 
+        public async Task<IActionResult> ChangeStatus(int id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var response = await client.GetAsync($"https://localhost:7047/api/Products/ChangeStatus/{id}");
+            if (response.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
 
     }
 

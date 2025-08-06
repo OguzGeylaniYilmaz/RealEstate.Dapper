@@ -6,5 +6,7 @@ namespace RealEstate.API.Repositories.ProductRepository
     {
         Task<List<ResultProductDto>> GetAllProductsAsync();
         Task<List<ResultProductWithCategory>> GetAllProductsWithCategoryAsync();
+
+        Task ChangeStatus(int productId, bool status);
     }
 }
