@@ -24,7 +24,9 @@
                                 connection.start().then(() => {
                                         $("#connStatus").text(connection.state);
                                         console.log("Connection started");
-                                        connection.invoke("SendActiveCategoryCount");
+                                        setInterval(() => {
+                                             connection.invoke("SendActiveCategoryCount");
+                                        }, 1000);                                   
                                     })
                                     .catch(err => console.error(err.toString()));
 
