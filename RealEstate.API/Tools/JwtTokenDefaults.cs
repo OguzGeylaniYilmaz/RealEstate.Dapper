@@ -1,6 +1,6 @@
 ﻿namespace RealEstate.API.Tools
 {
-    public class JwtTokenDefault
+    public class JwtTokenDefaults
     {
         public const string ValidAudience = "https://localhost";
         public const string ValidIssuer = "https://localhost";
