@@ -46,5 +46,22 @@ namespace RealEstate.API.Repositories.ProductRepository
                 return result.ToList();
             }
         }
+
+        public async Task<List<ResultAdsListDto>> GetProductAdsListAsync(int id)
+        {
+            string query = @"
+                SELECT p.ProductID, p.Title, p.Price ,p.CoverImage, p.City, p.District, p.Address, p.Type, p.DealOfTheDay, c.CategoryName 
+                FROM Product p
+                INNER JOIN Category c ON p.ProductCategory = c.CategoryID where EmployeeID =@EmployeeId";
+
+            var parameters = new DynamicParameters();
+            parameters.Add("@EmployeeId", id);
+            using (var connection = _context.CreateConnection())
+            {
+                var result = await connection.QueryAsync<ResultAdsListDto>(query, parameters);
+                return result.ToList();
+            }
+
+        }
     }
 }
