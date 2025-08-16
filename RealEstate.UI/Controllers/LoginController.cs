@@ -62,11 +62,13 @@ namespace RealEstate.UI.Controllers
                         };
 
                         await HttpContext.SignInAsync(JwtBearerDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), athenticationProperties);
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Index", "Employee");
                     }
                 }
 
             }
+
+            return View(createLogin);
         }
 
     }
